@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>For Mutiara ♡</title>
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    background: #fff5f8;
+    color: #684252;
+}
+
+
+/* =====================================================
+   CHECKBOX CONTROL
+   TIDAK TERLIHAT
+===================================================== */
+
+#open-surprise {
+    display: none;
+}
+
+
+/* =====================================================
+   OPENING SCREEN
+===================================================== */
+
+.opening-screen {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 25px;
+
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(255,255,255,0.95),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(239,165,193,0.45),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #f8cede,
+            #fff5f8,
+            #f7c5d9
+        );
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+
+/* =====================================================
+   OPENING CARD
+===================================================== */
+
+.opening-card {
+
+    width: 100%;
+
+    max-width: 520px;
+
+    padding: 60px 30px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,0.68);
+
+    border:
+        1px solid rgba(255,255,255,0.9);
+
+    box-shadow:
+        0 30px 80px
+        rgba(135,70,95,0.16);
+
+    backdrop-filter: blur(15px);
+
+    -webkit-backdrop-filter: blur(15px);
+
+    animation:
+        floating 4s ease-in-out infinite;
+}
+
+
+/* =====================================================
+   TEXT OPENING
+===================================================== */
+
+.opening-small {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+    color: #9d6078;
+
+    margin-bottom: 20px;
+}
+
+
+.opening-card h1 {
+
+    font-size:
+        clamp(45px, 12vw, 72px);
+
+    line-height: 1;
+
+    font-weight: normal;
+
+    color: #8b4964;
+}
+
+
+.opening-card p {
+
+    margin-top: 23px;
+
+    margin-bottom: 35px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    color: #805667;
+}
+
+
+/* =====================================================
+   OPEN BUTTON
+===================================================== */
+
+.open-button {
+
+    display: inline-block;
+
+    cursor: pointer;
+
+    padding: 17px 35px;
+
+    border-radius: 100px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #cc7197,
+            #a94f76
+        );
+
+    color: white;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    letter-spacing: 1px;
+
+    box-shadow:
+        0 12px 30px
+        rgba(169,79,118,0.3);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+    user-select: none;
+
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+
+.open-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 18px 35px
+        rgba(169,79,118,0.4);
+}
+
+
+.open-button:active {
+
+    transform:
+        scale(0.95);
+}
+
+
+/* =====================================================
+   MAGIC:
+
+   KETIKA CHECKBOX DICENTANG,
+   OPENING SCREEN HILANG.
+===================================================== */
+
+#open-surprise:checked
+~ .opening-screen {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   WEBSITE SURPRISE
+===================================================== */
+
+.surprise-content {
+
+    min-height: 100vh;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+
+/* =====================================================
+   KETIKA DIBUKA,
+   ISI WEBSITE MUNCUL.
+===================================================== */
+
+#open-surprise:checked
+~ .surprise-content {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 50px 20px;
+
+    background:
+
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(255,255,255,0.95),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(237,166,193,0.4),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            145deg,
+            #fff6f9,
+            #f9d5e3
+        );
+}
+
+
+.hero-content {
+
+    width: 100%;
+
+    max-width: 800px;
+}
+
+
+.hero-date {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+    color: #a15c76;
+
+    margin-bottom: 25px;
+}
+
+
+.hero h1 {
+
+    font-size:
+        clamp(48px, 13vw, 105px);
+
+    line-height: 0.95;
+
+    font-weight: normal;
+
+    font-style: italic;
+
+    color: #8c4b66;
+}
+
+
+.hero h2 {
+
+    margin-top: 25px;
+
+    font-family: Arial, sans-serif;
+
+    font-size:
+        clamp(18px, 5vw, 26px);
+
+    font-weight: normal;
+
+    color: #795064;
+}
+
+
+.hero-line {
+
+    width: 70px;
+
+    height: 1px;
+
+    background: #b66c89;
+
+    margin: 30px auto;
+}
+
+
+.hero-text {
+
+    max-width: 560px;
+
+    margin: auto;
+
+    font-size: 17px;
+
+    line-height: 1.9;
+
+    color: #735060;
+}
+
+
+/* =====================================================
+   GENERAL SECTION
+===================================================== */
+
+.section {
+
+    padding: 90px 20px;
+}
+
+
+.container {
+
+    width: 100%;
+
+    max-width: 900px;
+
+    margin: auto;
+}
+
+
+.section-label {
+
+    text-align: center;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    color: #a15d77;
+
+    margin-bottom: 15px;
+}
+
+
+.section-title {
+
+    text-align: center;
+
+    font-size:
+        clamp(32px, 7vw, 50px);
+
+    font-weight: normal;
+
+    color: #81475f;
+
+    margin-bottom: 40px;
+}
+
+
+/* =====================================================
+   COUNTDOWN
+===================================================== */
+
+.countdown-section {
+
+    text-align: center;
+
+    background: white;
+}
+
+
+.countdown {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+
+.time-box {
+
+    width: 85px;
+
+    padding: 20px 10px;
+
+    border-radius: 20px;
+
+    background: #fff3f7;
+
+    border:
+        1px solid #f1d4df;
+}
+
+
+.time-number {
+
+    display: block;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    color: #a25272;
+}
+
+
+.time-label {
+
+    display: block;
+
+    margin-top: 5px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: #987383;
+}
+
+
+/* =====================================================
+   LETTER
+===================================================== */
+
+.letter-section {
+
+    background:
+        #fff4f8;
+}
+
+
+.letter {
+
+    max-width: 720px;
+
+    margin: auto;
+
+    padding:
+        clamp(30px, 7vw, 60px);
+
+    background:
+        rgba(255,255,255,0.9);
+
+    border-radius: 28px;
+
+    border:
+        1px solid #efd4df;
+
+    box-shadow:
+        0 20px 60px
+        rgba(125,65,90,0.08);
+}
+
+
+.letter p {
+
+    font-size: 17px;
+
+    line-height: 2;
+
+    margin-bottom: 20px;
+}
+
+
+.letter-highlight {
+
+    text-align: center;
+
+    font-size: 24px !important;
+
+    font-style: italic;
+
+    color: #a04f70;
+
+    margin:
+        35px 0 !important;
+}
+
+
+.signature {
+
+    text-align: right;
+
+    font-size: 20px;
+
+    font-style: italic;
+
+    color: #914e69;
+
+    margin-top: 35px;
+}
+
+
+/* =====================================================
+   SPECIAL
+===================================================== */
+
+.special-section {
+
+    background: white;
+
+    text-align: center;
+}
+
+
+.special-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+
+.special-card {
+
+    padding: 32px 20px;
+
+    border-radius: 22px;
+
+    background: #fff5f8;
+
+    border:
+        1px solid #f0d8e2;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.special-card:hover {
+
+    transform:
+        translateY(-6px);
+}
+
+
+.special-icon {
+
+    font-size: 30px;
+
+    margin-bottom: 15px;
+
+    color: #bc6787;
+}
+
+
+.special-card h3 {
+
+    font-size: 20px;
+
+    font-weight: normal;
+
+    color: #8d4e68;
+
+    margin-bottom: 10px;
+}
+
+
+.special-card p {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    color: #846675;
+}
+
+
+/* =====================================================
+   FINAL
+===================================================== */
+
+.final-section {
+
+    min-height: 80vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 80px 20px;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,0.8),
+            transparent 40%
+        ),
+
+        linear-gradient(
+            145deg,
+            #f5c2d7,
+            #fce7ef
+        );
+}
+
+
+.final-content {
+
+    width: 100%;
+
+    max-width: 650px;
+}
+
+
+.final-heart {
+
+    font-size: 52px;
+
+    color: #ae5c7d;
+
+    animation:
+        heartbeat 1.5s infinite;
+
+    margin-bottom: 20px;
+}
+
+
+.final-section h2 {
+
+    font-size:
+        clamp(40px, 9vw, 70px);
+
+    font-weight: normal;
+
+    font-style: italic;
+
+    color: #8b4a64;
+
+    margin-bottom: 20px;
+}
+
+
+.final-section p {
+
+    font-size: 17px;
+
+    line-height: 1.9;
+
+    color: #744e5f;
+}
+
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+.heart {
+
+    position: fixed;
+
+    bottom: -30px;
+
+    z-index: 100000;
+
+    pointer-events: none;
+
+    color: #d17b9c;
+
+    animation:
+        floatHeart 7s linear infinite;
+}
+
+
+.heart:nth-child(1) {
+
+    left: 10%;
+
+    animation-delay: 0s;
+}
+
+
+.heart:nth-child(2) {
+
+    left: 30%;
+
+    animation-delay: 2s;
+}
+
+
+.heart:nth-child(3) {
+
+    left: 50%;
+
+    animation-delay: 4s;
+}
+
+
+.heart:nth-child(4) {
+
+    left: 75%;
+
+    animation-delay: 1s;
+}
+
+
+.heart:nth-child(5) {
+
+    left: 90%;
+
+    animation-delay: 3s;
+}
+
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes floating {
+
+    0%, 100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-8px);
+    }
+}
+
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform:
+            scale(1);
+    }
+
+    50% {
+        transform:
+            scale(1.18);
+    }
+}
+
+
+@keyframes floatHeart {
+
+    0% {
+
+        transform:
+            translateY(0)
+            scale(0.7);
+
+        opacity: 0;
+    }
+
+    20% {
+
+        opacity: 0.7;
+    }
+
+    100% {
+
+        transform:
+            translateY(-110vh)
+            scale(1.3);
+
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .opening-card {
+
+        padding:
+            50px 22px;
+
+        border-radius: 28px;
+    }
+
+
+    .opening-card h1 {
+
+        font-size: 48px;
+    }
+
+
+    .opening-card p {
+
+        font-size: 14px;
+    }
+
+
+    .open-button {
+
+        padding:
+            16px 28px;
+    }
+
+
+    .section {
+
+        padding:
+            75px 18px;
+    }
+
+
+    .special-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .letter p {
+
+        font-size: 15px;
+
+        line-height: 1.9;
+    }
+
+
+    .letter-highlight {
+
+        font-size: 21px !important;
+    }
+
+
+    .time-box {
+
+        width: 70px;
+
+        padding:
+            16px 8px;
+    }
+
+
+    .time-number {
+
+        font-size: 23px;
+    }
+
+
+    .hero-text {
+
+        font-size: 15px;
+
+        line-height: 1.8;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     INI ADALAH "TOMBOL" PENGONTROL
+
+     TIDAK MEMBUTUHKAN JAVASCRIPT
+===================================================== -->
+
+<input
+    type="checkbox"
+    id="open-surprise"
+>
+
+
+
+<!-- =====================================================
+     HALAMAN PERTAMA
+===================================================== -->
+
+<div class="opening-screen">
+
+
+    <div class="opening-card">
+
+
+        <div class="opening-small">
+
+            A Little Surprise
+
+        </div>
+
+
+        <h1>
+
+            For Mutiara
+
+        </h1>
+
+
+        <p>
+
+            Ada sesuatu yang aku siapkan
+            khusus untuk kamu...
+
+        </p>
+
+
+        <!--
+
+            INI BUKAN BUTTON JAVASCRIPT.
+
+            LABEL INI AKAN MENGAKTIFKAN
+            CHECKBOX DI ATAS.
+
+        -->
+
+        <label
+            for="open-surprise"
+            class="open-button"
+        >
+
+            Open Your Surprise ♡
+
+        </label>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     ISI SURPRISE
+===================================================== -->
+
+<div class="surprise-content">
+
+
+    <!-- =================================================
+         HERO
+    ================================================== -->
+
+    <section class="hero">
+
+
+        <div class="hero-content">
+
+
+            <div class="hero-date">
+
+                08 • 12 • 2026
+
+            </div>
+
+
+            <h1>
+
+                Happy Birthday
+
+            </h1>
+
+
+            <h2>
+
+                Mutiara Nur Rachma
+
+            </h2>
+
+
+            <div class="hero-line"></div>
+
+
+            <p class="hero-text">
+
+                Hari ini bukan cuma tentang
+                bertambahnya usia,
+                tapi tentang merayakan
+                seseorang yang begitu berarti.
+
+            </p>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         COUNTDOWN
+    ================================================== -->
+
+    <section
+        class="section countdown-section"
+    >
+
+
+        <div class="container">
+
+
+            <div class="section-label">
+
+                The Day
+
+            </div>
+
+
+            <h2 class="section-title">
+
+                21 looks beautiful on you.
+
+            </h2>
+
+
+            <div class="countdown">
+
+
+                <div class="time-box">
+
+                    <span
+                        class="time-number"
+                    >
+                        21
+                    </span>
+
+                    <span class="time-label">
+
+                        Years
+
+                    </span>
+
+                </div>
+
+
+                <div class="time-box">
+
+                    <span
+                        class="time-number"
+                    >
+                        ♡
+                    </span>
+
+                    <span class="time-label">
+
+                        Loved
+
+                    </span>
+
+                </div>
+
+
+                <div class="time-box">
+
+                    <span
+                        class="time-number"
+                    >
+                        ∞
+                    </span>
+
+                    <span class="time-label">
+
+                        Wishes
+
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         SURAT
+    ================================================== -->
+
+    <section
+        class="section letter-section"
+    >
+
+
+        <div class="container">
+
+
+            <div class="section-label">
+
+                A Letter For You
+
+            </div>
+
+
+            <h2 class="section-title">
+
+                Untuk Mutiara ♡
+
+            </h2>
+
+
+            <div class="letter">
+
+
+                <p>
+
+                    Hai, Mutiara.
+
+                </p>
+
+
+                <p>
+
+                    Selamat ulang tahun
+                    yang ke-21. ♡
+
+                </p>
+
+
+                <p>
+
+                    Hari ini adalah hari spesial
+                    karena seseorang yang begitu
+                    berarti dilahirkan ke dunia.
+
+                    Aku cuma ingin kamu tahu
+                    bahwa aku bersyukur bisa
+                    mengenal kamu, bisa melihat
+                    senyum kamu, dan bisa menjadi
+                    bagian kecil dari perjalanan
+                    hidup kamu.
+
+                </p>
+
+
+                <p class="letter-highlight">
+
+                    "Semoga di umur 21 ini,
+                    semua hal baik perlahan
+                    menemukan jalan menuju kamu."
+
+                </p>
+
+
+                <p>
+
+                    Aku berharap kamu selalu
+                    diberikan kesehatan,
+                    kebahagiaan, ketenangan,
+                    dan banyak alasan untuk
+                    tersenyum.
+
+                </p>
+
+
+                <p>
+
+                    Semoga semua mimpi yang
+                    sedang kamu perjuangkan
+                    satu per satu bisa menjadi nyata.
+
+                </p>
+
+
+                <p>
+
+                    Jangan terlalu keras sama
+                    diri sendiri, ya.
+
+                    Kamu sudah melakukan yang
+                    terbaik sejauh ini.
+
+                </p>
+
+
+                <p>
+
+                    Kalau suatu hari dunia
+                    terasa terlalu berat,
+                    semoga kamu selalu ingat
+                    kalau kamu tidak sendirian.
+
+                </p>
+
+
+                <p>
+
+                    Terima kasih sudah menjadi
+                    Mutiara yang aku kenal.
+
+                    Tetap jadi diri kamu sendiri,
+                    tetap bersinar dengan cara
+                    kamu sendiri.
+
+                </p>
+
+
+                <p class="letter-highlight">
+
+                    Happy 21st Birthday,
+                    Mutiara.
+
+                </p>
+
+
+                <div class="signature">
+
+                    With love, always ♡
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         WHY SPECIAL
+    ================================================== -->
+
+    <section
+        class="section special-section"
+    >
+
+
+        <div class="container">
+
+
+            <div class="section-label">
+
+                Just A Few Things
+
+            </div>
+
+
+            <h2 class="section-title">
+
+                Why You Are Special
+
+            </h2>
+
+
+            <div class="special-grid">
+
+
+                <div class="special-card">
+
+
+                    <div class="special-icon">
+
+                        ♡
+
+                    </div>
+
+
+                    <h3>
+
+                        Your Smile
+
+                    </h3>
+
+
+                    <p>
+
+                        Ada sesuatu dari senyum
+                        kamu yang selalu berhasil
+                        bikin suasana terasa lebih hangat.
+
+                    </p>
+
+
+                </div>
+
+
+
+                <div class="special-card">
+
+
+                    <div class="special-icon">
+
+                        ✦
+
+                    </div>
+
+
+                    <h3>
+
+                        Your Heart
+
+                    </h3>
+
+
+                    <p>
+
+                        Cara kamu peduli dan
+                        memperlakukan orang lain
+                        adalah salah satu hal
+                        yang membuat kamu istimewa.
+
+            
